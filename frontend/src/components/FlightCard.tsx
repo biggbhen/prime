@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import ActiviteImage from "../assets/Airplain.svg";
-import X from "../assets/X.png";
 import Duration from "../assets/duration.png";
 import { PiAirplaneInFlight, PiAirplaneLandingBold, PiAirplaneTakeoffBold, PiFilmSlateBold, PiForkKnifeBold, PiSuitcaseRollingBold, PiUsbBold } from "react-icons/pi";
+import { IoMdClose } from "react-icons/io";
 
 
 interface Flight {
@@ -33,7 +33,7 @@ const FlightCard: React.FC<
     }
   }, [refreshTrigger]);
   return (
-		<div className='md:p-5 p-2 bg-[#F0F2F5] mb-10 mx-3   rounded-md'>
+		<div className='md:p-5 p-2 bg-[#F0F2F5] mb-10 md:mx-3   rounded-md'>
 			<div className='flex justify-between mb-5'>
 				<div className='flex items-center'>
 					<img
@@ -46,7 +46,7 @@ const FlightCard: React.FC<
 				{savedFlights.length > 0 ? (
 					<button
 						onClick={onButtonClick}
-						className='text-[#0D6EFD] bg-white px-4 py-2 rounded font-medium text-sm hover:bg-[#d1d1d1]'>
+						className='text-[#0D6EFD] bg-white px-4 py-2 rounded font-medium text-sm hover:bg-[#3e77cc] '>
 						Add Flights
 					</button>
 				) : (
@@ -56,48 +56,44 @@ const FlightCard: React.FC<
 
 			{savedFlights.length > 0 ? (
 				savedFlights.map((airline, index) => (
-					<div className='flex gap-0 mb-4' key={index}>
+					<div className='md:flex gap-0 mb-4' key={index}>
 						<div className='w-full  border rounded-l-sm md:p-0 p-4 shadow-sm bg-white'>
 							<div className='md:flex md:flex-col  flex-col'>
-								<div className='md:flex justify-between md:p-5 lg:p-7'>
-									<div className='flex gap-x-2 '>
+								<div className='md:flex justify-between md:p-5 lg:p-7 gap-x-4'>
+									<div className='flex gap-x-2 mr-4'>
 										<div>
-											{' '}
 											<img
 												src={airline.logoUrl}
-												alt={'flight'}
+												alt='flight'
 												className='md:w-10 mt-3 mx-auto'
 											/>
 										</div>
 										<div>
-											<span className='font-semibold text-xl lg:text-xl md:text-lg  xl:text-xl text-[#1D2433]'>
+											<span className='font-semibold text-xl lg:text-xl md:text-lg xl:text-xl text-[#1D2433]'>
 												{airline.name || 'Unnamed flight'}
 											</span>
 											<br />
 											<span className='text-[#676E7E] me-2 text-base font-medium'>
 												AA-829 ·
 											</span>
-
-											<button className='p-1 text-xs bg-[#0A369D] rounded-[4px] px-2 py-2 text-white'>
+											<button className='p-1 text-xs bg-[#0A369D] rounded-[4px] px-2 py-2 text-white hover:bg-[#1E4997]'>
 												first class
 											</button>
 										</div>
 									</div>
-
-									<div>
+									<div className=' md:me-10  xl:px-4'>
 										<div className='md:flex flex-col md:flex-row items-center text-center md:space-x-4 mt-4 md:mt-0'>
 											<div>
-												<p className='text-xl lg:text-xl md:text-lg  xl:text-xl  font-semibold text-[#1D2433]'>
+												<p className='text-xl lg:text-xl md:text-lg xl:text-xl font-semibold text-[#1D2433]'>
 													08:35
 												</p>
-												<p className='text-sm text-[#676E7E] '>Sun, 20 Aug</p>
+												<p className='text-sm text-[#676E7E]'>Sun, 20 Aug</p>
 											</div>
-
 											<div className='flex flex-col items-center justify-center space-y-2 mt-2 md:mt-0'>
 												<div className='flex items-center space-x-10'>
 													<PiAirplaneTakeoffBold
 														size={20}
-														className='text-[#475367] '
+														className='text-[#475367]'
 													/>
 													<span className='text-sm text-[#676E7E]'>
 														Duration: 1h 45m
@@ -107,13 +103,16 @@ const FlightCard: React.FC<
 														className='text-[#475367]'
 													/>
 												</div>
-												{/* Icon below duration */}
-												<img src={Duration} alt='' className='w-[17rem]' />
-												<p className=' text-sm text-[#676E7E]'>Direct</p>
-											</div>
+												<img
+													src={Duration}
+													alt=''
+													className='w-[17rem] xl:w-[17rem]'
+												/>
 
+												<p className='text-sm  text-[#676E7E]'>Direct</p>
+											</div>
 											<div>
-												<p className='text-xl lg:text-xl md:text-lg  xl:text-xl  font-semibold'>
+												<p className='text-xl lg:text-xl md:text-lg xl:text-xl font-semibold'>
 													09:55
 												</p>
 												<p className='text-sm text-gray-500'>Sun, 20 Aug</p>
@@ -121,15 +120,14 @@ const FlightCard: React.FC<
 										</div>
 									</div>
 									<div>
-										{/* Price */}
-										<div className='text-right mt-4 md:mt-0'>
-											<p className='text-xl lg:text-xl md:text-lg  xl:text-xl  font-semibold text-[#1D2433]'>
-												{' '}
+										<div className='text-right mt-4 xl:me-6 md:mt-0'>
+											<p className='text-xl lg:text-xl md:text-lg xl:text-xl font-semibold text-[#1D2433]'>
 												$123.00
 											</p>
 										</div>
 									</div>
 								</div>
+
 								{/* Facilities */}
 								<div className='border-y mt-4 py-4 md:px-7'>
 									<div className='flex text-xs space-y-1 xl:text-base md:text-xs font-medium flex-wrap items-center md:space-x-2 lg:space-x-4 text-greyText'>
@@ -155,21 +153,27 @@ const FlightCard: React.FC<
 
 								<div className='flex text-xs md:text-sm md:justify-between gap-x-5 text-[#0D6EFD] mt-4 md:mt-0 md:px-7 md:py-5'>
 									<div>
-										<a href='#' className=' cursor-pointer me-5'>
+										<a
+											href='#'
+											className='cursor-pointer me-5 text-[#0D6EFD] hover:text-[#0056b3]'>
 											Flight details
 										</a>
-										<a href='#' className=' cursor-pointer'>
+										<a
+											href='#'
+											className='cursor-pointer text-[#0D6EFD] hover:text-[#0056b3]'>
 											Price details
 										</a>
 									</div>
-									<a href='#' className=' cursor-pointer'>
+									<a
+										href='#'
+										className='cursor-pointer text-[#0D6EFD] hover:text-[#0056b3]'>
 										Edit details
 									</a>
 								</div>
 							</div>
 						</div>
-						<div className='w-8 md:w-10 bg-[#FBEAE9] flex justify-center items-center rounded-r-md'>
-							<img src={X} className='w-6 h-6 cursor-pointer' alt='' />
+						<div className='w-full md:w-10 bg-[#FBEAE9] flex justify-center items-center rounded-r-md'>
+							<IoMdClose className='w-6 h-6 cursor-pointer text-[#9E0A05] hover:text-[#FF5733]' />
 						</div>
 					</div>
 				))
@@ -181,7 +185,7 @@ const FlightCard: React.FC<
 					<h3>No Request yet</h3>
 					<button
 						onClick={onButtonClick}
-						className='text-white font-medium text-base  bg-[#0D6EFD] px-4 py-2 rounded  hover:bg-[#0d6dfdab'>
+						className='text-white font-medium text-base  bg-[#0D6EFD] px-4 py-2 rounded  hover:bg-[#0d6dfdab hover:bg-[#0d6dfdab]'>
 						Add Flights
 					</button>
 				</div>

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { FaStar, FaRegClock } from 'react-icons/fa'
 import ActiviteImage from '../assets/activities.png'
-import X from '../assets/X.png'
 import { PiCaretCircleDownBold, PiCaretCircleUpBold, PiRoadHorizonLight } from "react-icons/pi";
 import { LuMapPin } from "react-icons/lu";
+import { IoMdClose } from "react-icons/io";
 
 interface ReviewsStats {
 	combinedNumericStats?: {
@@ -12,7 +12,7 @@ interface ReviewsStats {
 	};
 }
 interface Attraction {
-    reviewsStats: ReviewsStats;
+    reviewsStats: ReviewsStats | null;
     name?: string;
     primaryPhoto?: { small?: string };
     shortDescription?: string;
@@ -101,7 +101,7 @@ const AttractionCard: React.FC<ChildComponentProps & { refreshTrigger: boolean }
 
 										<div className='flex items-center ms-3 space-x-2 text-gray-600 text-sm'>
 											<LuMapPin className='text-blue-500' />
-											<span className='font-medium cursor-pointer text-[#0D6EFD] text-md'>
+											<span className='font-medium cursor-pointer text-[#0D6EFD] text-md hover:text-[#0056b3]'>
 												Directions
 											</span>
 											<FaStar className='text-yellow-400 ml-4' />
@@ -118,21 +118,27 @@ const AttractionCard: React.FC<ChildComponentProps & { refreshTrigger: boolean }
 										</div>
 
 										<div className='border-y border-[#E4E7EC] w-full text-lg text-[#647995] py-2 mt-2'>
-											<div className='md:flex justify-between pb-3'>
+											<div className='lg:flex justify-between pb-3'>
 												<div className='md:flex text-base ms-3 md:gap-x-1 xl:gap-x-3'>
 													<span>What's Included:</span>
 													<span>Admission to the Empire State Building</span>
-													<span className='text-[#0D6EFD] cursor-pointer'>
+													<span className='text-[#0D6EFD] cursor-pointer hover:text-[#0056b3]'>
 														See more
 													</span>
 												</div>
 												<div className='font-medium md:flex text-sm'>
-													<button className='bg-[#0A369D]  text-white px-2 py-1 rounded font-normal hover:bg-[#3e77cc]'>
+													<button className='bg-[#0A369D]  text-white px-2 py-1 rounded m-2 lg:m-0  font-normal hover:bg-[#3e77cc]'>
 														Day 2
 													</button>
 													<div className='flex flex-row md:flex-col items-center ml-2'>
-														<PiCaretCircleUpBold size={14} className='md:mb-1 cursor-pointer' />
-														<PiCaretCircleDownBold size={14} className='md:mt-1 cursor-pointer' />
+														<PiCaretCircleUpBold
+															size={16}
+															className='md:mb-1 cursor-pointer hover:text-[#1D2433]'
+														/>
+														<PiCaretCircleDownBold
+															size={16}
+															className='md:mt-1 hover:text-[#1D2433] cursor-pointer'
+														/>
 													</div>
 												</div>
 											</div>
@@ -140,11 +146,15 @@ const AttractionCard: React.FC<ChildComponentProps & { refreshTrigger: boolean }
 
 										<div className='flex ms-3 justify-between text-sm font-medium text-[#0D6EFD] mt-3'>
 											<div className='flex gap-x-4'>
-												<span className='cursor-pointer'>Activity details</span>
-												<span className='cursor-pointer'>Price details</span>
+												<span className='cursor-pointer  hover:text-[#0056b3]'>
+													Activity details
+												</span>
+												<span className='cursor-pointer  hover:text-[#0056b3]'>
+													Price details
+												</span>
 											</div>
 											<div>
-												<span className='text-end flex cursor-pointer'>
+												<span className='text-end  hover:text-[#0056b3] flex cursor-pointer'>
 													Edit details
 												</span>
 											</div>
@@ -155,7 +165,7 @@ const AttractionCard: React.FC<ChildComponentProps & { refreshTrigger: boolean }
 
 							{/* Red sidebar with centered back icon */}
 							<div className='w-full  md:w-10 bg-[#FBEAE9] flex justify-center items-center rounded-r-md'>
-								<img src={X} className='w-6 h-6 cursor-pointer' alt='' />
+								<IoMdClose className='w-6 h-6 cursor-pointer text-[#9E0A05] hover:text-[#FF5733]' />
 							</div>
 						</div>
 					))

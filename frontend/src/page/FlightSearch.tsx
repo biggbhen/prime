@@ -27,9 +27,10 @@ const FlightSearch: React.FC<FlightSearchProps> = ({ onClose }) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const modalRef = useRef<HTMLDivElement>(null);
-  const isButtonDisabled = !fromLocation || !toLocation || !departDate;
+  const isButtonDisabled = !fromLocation || !toLocation || !departDate || loading
 
-  const api = import.meta.env.VITE_RAPIDAPI_KEY;
+  // const api = import.meta.env.VITE_RAPIDAPI_KEY;
+    const api = 'ee4be561b5msh553e784e48718ebp15473djsn00439746e0c3';
 
   const fetchLocationId = async (location: string): Promise<string | null> => {
     try {
@@ -100,19 +101,17 @@ const FlightSearch: React.FC<FlightSearchProps> = ({ onClose }) => {
   };
 
   const handleFlightClick = (flight: Airline) => {
-    // Retrieve existing attractions or initialize an empty array
     const savedFlights = localStorage.getItem("savedFlights")
       ? JSON.parse(localStorage.getItem("savedFlights") as string)
       : [];
 
-    // Ensure savedAttractions is an array and then push the new attraction
     savedFlights.push(flight);
 
-    // Save back to localStorage
+
     localStorage.setItem("savedFlights", JSON.stringify(savedFlights));
 
     toast.success("flight added!");
-    console.log("Newly saved Flights:", savedFlights); // Debug log
+    console.log("Newly saved Flights:", savedFlights); 
   };
 
   useEffect(() => {

@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import { FaStar } from 'react-icons/fa';
 
-import X from '../assets/X.png';
+
 import Pool from '../assets/Pool.svg';
 import Bar from '../assets/Wine.svg';
 
 import { PiBedFill, PiBuildings, PiCalendarBlankBold } from 'react-icons/pi';
 import { LuMapPin } from 'react-icons/lu';
+import { IoMdClose } from 'react-icons/io';
 
 interface Hotel {
 	property: any;
@@ -91,9 +92,10 @@ const HotelCard: React.FC<
 
 									<div className='flex  items-center ms-2 md:space-x-2 text-greyText text-xs my-3 md:my-0 md:text-sm'>
 										<LuMapPin className='text-[#0D6EFD]' />
-										<span className='font-medium text-[#0D6EFD]'>
+										<span className='font-medium text-[#0D6EFD] cursor-pointer hover:text-[#0056b3]'>
 											Show in map
 										</span>
+
 										<FaStar className='text-yellow-400 ml-4' />
 										<span className=''>
 											{hotel.reviewsStats?.combinedNumericStats.average ||
@@ -124,32 +126,41 @@ const HotelCard: React.FC<
 													className='text-[#475367]'
 													size={20}
 												/>
-												<span>
-													Check In:
-													{hotel.checkinDate}
-												</span>
+												<span>Check In: 20-04-2024</span>
 												<PiCalendarBlankBold
 													className='text-[#475367]'
 													size={20}
 												/>
-												<span>Check Out: {hotel.checkoutDate}</span>
+												<span>Check Out: 29-04-2024</span>
 											</span>
 										</div>
 									</div>
 
 									<div className='flex ms-2 text-sm justify-between bottom-0 font-medium text-[#0D6EFD] mt-3'>
-										<div className='flex gap-x-4'>
-											<span>Hotel details</span>
-											<span>Price details</span>
+										<div className='flex gap-x-2'>
+											<a
+												href='#'
+												className='cursor-pointer me-5 text-[#0D6EFD] hover:text-[#0056b3]'>
+												Hotel details
+											</a>
+											<a
+												href='#'
+												className='cursor-pointer text-[#0D6EFD] hover:text-[#0056b3]'>
+												Price details
+											</a>
 										</div>
-										<span>Edit details</span>
+										<a
+											href='#'
+											className='cursor-pointer text-[#0D6EFD] hover:text-[#0056b3]'>
+											Edit details
+										</a>
 									</div>
 								</div>
 							</div>
 						</div>
 
 						<div className='w-full md:w-10 bg-[#FBEAE9] flex justify-center items-center rounded-r-md'>
-							<img src={X} className='w-6 h-6 cursor-pointer' alt='' />
+							<IoMdClose className='w-6 h-6 cursor-pointer text-[#9E0A05] hover:text-[#FF5733]' />
 						</div>
 					</div>
 				))

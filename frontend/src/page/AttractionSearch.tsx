@@ -9,10 +9,10 @@ interface AttractionSearchProps {
 }
 
 interface Attraction {
-	representativePrice: unknown;
-	reviewsStats: unknown;
+	representativePrice: any;
+	reviewsStats: any;
 	shortDescription: string;
-	primaryPhoto: unknown;
+	primaryPhoto: any;
 	property: unknown;
 	priceBreakdown: {
 		grossPrice: {
@@ -40,11 +40,12 @@ const AttractionSearch: React.FC<AttractionSearchProps> = ({ onClose }) => {
     const [error, setError] = useState<string | null>(null);
     const modalRef = useRef<HTMLDivElement>(null);
 
-    const apiKey = import.meta.env.VITE_RAPIDAPI_KEY;
+     const apiKey = import.meta.env.VITE_RAPIDAPI_KEY;
+     
 
 
 
-    const  isButtonDisabled = !location || !departureDate || !arrivalDate;
+    const  isButtonDisabled = !location || !departureDate || !arrivalDate 
 
 
     const handleAttractionClick = (attraction: Attraction) => {
@@ -60,7 +61,7 @@ const AttractionSearch: React.FC<AttractionSearchProps> = ({ onClose }) => {
         localStorage.setItem("savedAttractions", JSON.stringify(savedAttractions));
         toast.success("Hotel added!");
         
-        console.log("Newly saved attractions:", savedAttractions); // Debug log
+        console.log("Newly saved attractions:", savedAttractions); 
     };
     
     
@@ -126,7 +127,7 @@ const AttractionSearch: React.FC<AttractionSearchProps> = ({ onClose }) => {
         document.addEventListener('mousedown', handleOutsideClick);
         return () => document.removeEventListener('mousedown', handleOutsideClick);
     }, []);
-    // console.log('key',apiKey)
+   
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4">

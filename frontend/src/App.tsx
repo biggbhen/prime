@@ -12,9 +12,9 @@ import Sidebar from "./components/Sidebar";
 import Banner from "../src/assets/banner.png";
 import Avatar from "../src/assets/avatar.svg";
 import { ToastContainer } from "react-toastify";
-import { PiCalendarBlankBold, PiDotsThreeBold, PiUserPlusBold } from "react-icons/pi";
+import { PiCalendarBlankBold, PiDotsThreeBold, PiGearSixBold, PiUserPlusBold } from "react-icons/pi";
 import { FaArrowRight } from "react-icons/fa6";
-// import { FaArrowLeft } from "react-icons/fa6";
+import { FaArrowLeft } from "react-icons/fa6";
 
 const App: React.FC = () => {
   const [isFlightModalOpen, setIsFlightModalOpen] = useState<boolean>(false);
@@ -53,12 +53,16 @@ const App: React.FC = () => {
 
 				<div className=' bg-[#F0F2F5]  flex-1  lg:p-4 xl:p-6 xl:ml-72 px-2 mt-[5rem] lg:mt-[4rem] xl:mt-14 w-screen md:mx-3 my-5'>
 					<div className='bg-white md:p-3 p-2 lg:p-3'>
-						<div className=' z-10'>
-							{/* <div className=' absolute top-4 z-10 left-3 bg-[#FFFFFF33]  rounded p-2'>
-								<FaArrowLeft className='text-[#344054] cursor-pointer hover:text-[#1D2433]' />
-							</div> */}
+						<div className='relative w-full mb-5 flex flex-col'>
+							<div className='relative'>
+								<img src={Banner} className='w-full' alt='banner' />
+								<div className='z-20 bg-[#FFFFFF33] cursor-pointer rounded w-fit p-2 md:-mt-[5.5rem] ml-3 lg:-mt-[8rem] xl:-mt-[8.5rem] self-start relative -mt-[3rem] group'>
+									<FaArrowLeft className='text-[#344054] cursor-pointer group-hover:text-[#1D2433] hover:text-[#1D2433]' />
+									
+								</div>
+							</div>
 
-							<img src={Banner} className='w-full  mb-5' alt='' />
+							<div className='lg:mt-[5.5rem] md:mt-[3.5rem] mt-3 xl:mt-[6rem]'></div>
 						</div>
 
 						<div className=' flex md:flex-row flex-col  justify-between'>
@@ -87,17 +91,34 @@ const App: React.FC = () => {
 								<div>
 									<div className=''>
 										<div className=' flex items-center'>
-											<div className='py-3 cursor-pointer px-[4rem] me-3 rounded-sm bg-[#E7F0FF]'>
-												<PiUserPlusBold className='text-[#0D6EFD]' />
+											<div className='py-3 cursor-pointer px-[4rem] me-3 rounded-sm bg-[#E7F0FF] hover:bg-[#D0E7FF] hover:shadow-md transition-all'>
+												<PiUserPlusBold className='text-[#0D6EFD] hover:text-[#004BA0]' />
 											</div>
-											<span className=" cursor-pointer">
-												<PiDotsThreeBold size={30} className=' text-[#344054]' />
+
+											<span className='cursor-pointer hover:text-[#0D6EFD] transition-colors'>
+												<PiDotsThreeBold
+													size={30}
+													className='text-[#344054] hover:text-[#1D2433]'
+												/>
 											</span>
 										</div>
 									</div>
-                  <div className="mt-7 flex -bottom-[5px]">
-                    <img src={Avatar} alt="avatar" />
-                  </div>
+									<div className='mt-7 flex items-center justify-start md:justify-center'>
+										<img
+											src={Avatar}
+											alt='avatar'
+											className='w-10 h-10 rounded-full z-10 -mr-2'
+										/>
+
+										<div className='h-[2px] bg-[#E7F0FF] w-12 z-0'></div>
+
+										<div className='flex items-center  justify-center w-10 h-10 rounded-full border-2 border-[#E7F0FF] bg-white z-10 -ml-2'>
+											<PiGearSixBold
+												size={20}
+												className='text-[#344054] cursor-pointer hover:text-blue-500'
+											/>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>

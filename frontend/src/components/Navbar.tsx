@@ -30,7 +30,7 @@ const Navbar: React.FC = () => {
   };
 
   return (
-		<nav className='bg-white shadow-md fixed w-full'>
+		<nav className='bg-white shadow-md fixed z-50 w-full'>
 			<div className='w-full px-3 xl:px-6 py-3 flex justify-between items-center'>
 				{/* Logo and Search */}
 				<div className='flex items-center space-x-4'>
@@ -48,10 +48,10 @@ const Navbar: React.FC = () => {
 				</div>
 
 				{/* Links for larger screens */}
-				<div className='hidden lg:flex text-xs font-medium text-greyText lg:space-x-3 xl:space-x-7 items-center'>
+				<div className='hidden lg:flex text-xs  font-medium text-greyText lg:space-x-3 xl:space-x-7 items-center'>
 					<a href='#' className='items-center group hover:text-[#1D2433]'>
 						<GoHome
-							size={25}
+							size={24}
 							className='mx-auto mb-1 group-hover:text-[#1D2433] icon'
 						/>
 						<span className='text-greyText group-hover:text-[#1D2433]'>
@@ -60,7 +60,7 @@ const Navbar: React.FC = () => {
 					</a>
 					<a href='#' className='items-center group hover:text-[#1D2433]'>
 						<PiChartPieSlice
-							size={25}
+							size={24}
 							className='mx-auto mb-1 icon group-hover:text-[#1D2433]'
 						/>
 						<span className='text-greyText group-hover:text-[#1D2433]'>
@@ -69,7 +69,7 @@ const Navbar: React.FC = () => {
 					</a>
 					<a href='#' className='items-center group hover:text-[#1D2433]'>
 						<PiWallet
-							size={25}
+							size={24}
 							className='mx-auto mb-1 icon group-hover:text-[#1D2433]'
 						/>
 						<span className='text-greyText group-hover:text-[#1D2433]'>
@@ -78,14 +78,14 @@ const Navbar: React.FC = () => {
 					</a>
 					<a href='#' className='items-center group text-[#1D2433]'>
 						<PiListChecksBold
-							size={25}
+							size={24}
 							className='mx-auto mb-1 text-[#1D2433]'
 						/>
 						<span className=''>Plan a trip</span>
 					</a>
 					<a href='#' className='items-center group hover:text-[#1D2433]'>
 						<PiHandCoins
-							size={25}
+							size={24}
 							className='mx-auto mb-1 icon group-hover:text-[#1D2433]'
 						/>
 						<span className='text-greyText group-hover:text-[#1D2433]'>
@@ -99,7 +99,7 @@ const Navbar: React.FC = () => {
 					</a>
 					<a href='#' className='items-center group hover:text-[#1D2433]'>
 						<PiBell
-							size={25}
+							size={24}
 							className='mx-auto icon mb-1 group-hover:text-[#1D2433]'
 						/>
 						<span className='text-greyText group-hover:text-[#1D2433]'>
@@ -108,7 +108,7 @@ const Navbar: React.FC = () => {
 					</a>
 					<a href='#' className='items-center group hover:text-[#1D2433]'>
 						<PiBasket
-							size={25}
+							size={24}
 							className='mx-auto mb-1 icon group-hover:text-[#1D2433]'
 						/>
 						<span className='text-greyText group-hover:text-[#1D2433]'>
@@ -117,7 +117,7 @@ const Navbar: React.FC = () => {
 					</a>
 					<a href='#' className='items-center group hover:text-[#1D2433]'>
 						<PiPlusSquare
-							size={25}
+							size={24}
 							className='mx-auto mb-1 icon group-hover:text-[#1D2433]'
 						/>
 						<span className='text-greyText group-hover:text-[#1D2433]'>

@@ -38,7 +38,8 @@ const HotelSearch: React.FC<HotelSearchProps> = ({ onClose }) => {
     const modalRef = useRef<HTMLDivElement>(null);
 
     const apiKey = import.meta.env.VITE_RAPIDAPI_KEY;
-    const  isButtonDisabled = !location || !departureDate || !arrivalDate;
+  
+    const  isButtonDisabled = !location || !departureDate || !arrivalDate || loading
 
     const handleHotelClick = (hotel: Hotel) => {
 
